@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Condition extends Model
 {
+    protected $fillable = ['name'];
     //
     public function conditionCategory(){
         return $this->belongsTo('App\ConditionCategory');
@@ -13,4 +14,6 @@ class Condition extends Model
     public function conditions(){
         return $this->belongsToMany('App\Conditions');
     }
+
+   
 }

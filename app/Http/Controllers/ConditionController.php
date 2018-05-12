@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Condition;
+use App\ConditionCategory;
+
 use Illuminate\Http\Request;
 
 class ConditionController extends Controller
@@ -15,6 +17,7 @@ class ConditionController extends Controller
     public function index()
     {
         //
+        return Condition::all();
     }
 
     /**
@@ -33,9 +36,12 @@ class ConditionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, ConditionCategory $conditioncategory)
     {
         //
+        $condition = new Condition(['name' => $request->condition]);
+        $conditioncategory->conditions()->save($condition);
+        return back();
     }
 
     /**
@@ -78,8 +84,10 @@ class ConditionController extends Controller
      * @param  \App\Condition  $condition
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Condition $condition)
+    public function destroy(ConditionCategory $conditioncategory, Condition $condition)
     {
         //
+        $condition->destroy($condition->id);
+        return back();
     }
 }

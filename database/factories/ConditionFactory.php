@@ -15,12 +15,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Condition::class, function (Faker $faker) {
     return [
-        'condition_category_id' => rand(1,5),
-        'health_history_id' => function() {
-            return factory(App\HealthHistory::class)->create()->id;
+        'condition_category_id' => function() {
+            return factory(App\ConditionCateogry::class)->create()->id;
         },
-        'name' => $faker->word,
-        'details' => $faker->paragraph,
-        'family_history' => $faker->boolean
+        'name' => $faker->word
     ];
 });

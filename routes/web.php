@@ -17,5 +17,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/client/{client}/healthhistory/edit', 'HealthHistoryController@edit');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', function(){ Auth::logout();});
+Route::resource('client.healthhistory', 'HealthHistoryController');
+// Route::resource('condition', 'ConditionController');
+Route::resource('conditioncategory', 'ConditionCategoryController');
+Route::resource('conditioncategory.condition', 'ConditionController');
+Route::resource('client', 'ClientController');
+Route::resource('user', 'UserController');
+
+
 

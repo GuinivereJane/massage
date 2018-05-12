@@ -16,9 +16,11 @@ Vue.use(Vuetify);
 Vue.use(Vuex);
 
 import counter from './store/modules/counter';
+
 const store = new Vuex.Store({
     modules: {
         counter: counter,
+        conditionCategories: conditionCategories,
       }
   })
 
@@ -35,6 +37,6 @@ Vue.component('guin-test', require('./components/GuinTest.vue'));
 
 const app = new Vue({
     el: '#app',
-    store
+    store,
 });
 

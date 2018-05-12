@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class ClientController extends Controller
 {
@@ -27,6 +29,7 @@ class ClientController extends Controller
     public function create()
     {
         //
+        return view('client.create', ['user' => Auth::user()]);
     }
 
     /**
@@ -38,6 +41,17 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Auth::user();
+        $client = new Client(
+            ['address' => $request->address,
+            'dob' => $request->dob,
+            'phone_number'=> $request->phone_number,
+            'occupation'=> $request->occupation,
+            ]);
+        //$user->client()->save($client);
+        var_dump($user->client());
+            // $client->save();
+
     }
 
     /**
@@ -49,7 +63,7 @@ class ClientController extends Controller
     public function show(Client $client)
     {
         //
-        return $client;
+        //return $client;
     }
 
     /**

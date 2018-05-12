@@ -15,6 +15,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Client::class, function (Faker $faker) {
     return [
-        
+        'address' => $faker->address,
+        'occupation' => $faker->jobTitle,
+        'phone_number' => $faker->phoneNumber,
+        'dob' => $faker->date
     ];
 });

@@ -19,10 +19,7 @@ class CreateConditionsTable extends Migration
             $table->unsignedInteger('condition_category_id');
             $table->foreign('condition_category_id')->references('id')->on('condition_categories')->onDelete('cascade');
             $table->string('name');
-            $table->string('details');
-            $table->boolean('family_history');
-            $table->unsignedInteger('health_history_id');
-            $table->foreign('health_history_id')->references('id')->on('health_histories')->onDelete('cascade');
+           
 
         });
     }

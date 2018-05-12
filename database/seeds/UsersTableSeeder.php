@@ -19,7 +19,6 @@ class UsersTableSeeder extends Seeder
                 factory(App\HealthHistory::class, 1)->create(['client_id'=>$c->id])->each(function ($hh){
                     factory(App\OtherTreatment::class,3)->create(['health_history_id'=> $hh->id]);
                     factory(App\MedicationInfo::class,3)->create(['health_history_id'=> $hh->id]);
-                    factory(App\Condition::class,3)->create(['health_history_id'=> $hh->id]);
 
                 });
             });

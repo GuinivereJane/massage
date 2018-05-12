@@ -12,7 +12,11 @@ class ConditionCategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        //
-        factory(App\ConditionCategory::class, 5)->create();
+
+        factory(App\ConditionCategory::class, 5)->create()->each(function ($cc){
+            factory(App\Condition::class,3)->create(['condition_category_id'=> $cc->id]);
+
+        });
+
     }
 }

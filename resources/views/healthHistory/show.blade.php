@@ -4,7 +4,7 @@
 @section('content')
 
     
-@foreach($client->healthhistory->conditions as $info)
+<!-- @foreach($client->healthhistory->conditions as $info)
     <p>{{ $info->conditionCategory->name }}</p>
-@endforeach
+@endforeach -->
 @endsection

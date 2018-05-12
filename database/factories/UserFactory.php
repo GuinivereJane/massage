@@ -18,10 +18,6 @@ $factory->define(App\User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => str_random(10), // secret
-        'remember_token' => str_random(10),
-        'address' => $faker->address,
-        'occupation' => $faker->jobTitle,
-        'phone_number' => $faker->phoneNumber,
-        'dob' => $faker->date
+        'remember_token' => str_random(10)
     ];
 });

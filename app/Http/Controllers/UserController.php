@@ -2,24 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\HealthHistory;
-use App\Client;
-
 use Illuminate\Http\Request;
+use App\User;
 
-class HealthHistoryController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Client $client)
+    public function index()
     {
         //
-      //  return $client->healthhistory->medicationInfo[1]->medication;
-      return view('healthhistory.index', ['healthhistory' => $client->healthhistory]);
-
+        $user = User::all();
+        return $user;
     }
 
     /**
@@ -30,6 +27,7 @@ class HealthHistoryController extends Controller
     public function create()
     {
         //
+       
     }
 
     /**
@@ -46,35 +44,33 @@ class HealthHistoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\HealthHistory  $healthHistory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client, HealthHistory $healthhistory)
+    public function show($id)
     {
         //
-        return view('healthhistory.show')->with($healthhistory);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\HealthHistory  $healthHistory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
         //
-        return view('healthhistory.edit', ['healthhistory' => $client->healthhistory]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\HealthHistory  $healthHistory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HealthHistory $healthHistory)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,11 +78,14 @@ class HealthHistoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\HealthHistory  $healthHistory
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HealthHistory $healthHistory)
+    public function destroy($id)
     {
         //
+        Auth::logout();
+
+
     }
 }

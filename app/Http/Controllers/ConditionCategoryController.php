@@ -15,7 +15,8 @@ class ConditionCategoryController extends Controller
     public function index()
     {
         //
-        return ConditionCategory::all();
+        return view('conditioncategory.index', ['conditionCategories' => ConditionCategory::all()]);
+
     }
 
     /**
@@ -37,6 +38,8 @@ class ConditionCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        ConditionCategory::addCategory($request->category);
+        return back();
     }
 
     /**
@@ -45,9 +48,10 @@ class ConditionCategoryController extends Controller
      * @param  \App\ConditionCategory  $conditionCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(ConditionCategory $conditionCategory)
+    public function show($id)
     {
-        //
+        //return the conditions currently associate with this catgory
+        //return ConditionCategory::find($id)->conditions;
     }
 
     /**
@@ -58,7 +62,8 @@ class ConditionCategoryController extends Controller
      */
     public function edit(ConditionCategory $conditionCategory)
     {
-        //
+        //send to view that allows adding/deleteing a category
+       // return view('conditioncategory.edit', ['conditionCategories' => ConditionCategory::all()]);
     }
 
     /**
@@ -79,8 +84,10 @@ class ConditionCategoryController extends Controller
      * @param  \App\ConditionCategory  $conditionCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ConditionCategory $conditionCategory)
+    public function destroy(ConditionCategory $conditioncategory)
     {
         //
+        $conditioncategory->destroy($conditioncategory->id);
+        return back();
     }
 }

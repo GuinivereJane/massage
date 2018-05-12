@@ -13729,9 +13729,11 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vuetify___default.a);
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
 
+
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     modules: {
-        counter: __WEBPACK_IMPORTED_MODULE_2__store_modules_counter__["a" /* default */]
+        counter: __WEBPACK_IMPORTED_MODULE_2__store_modules_counter__["a" /* default */],
+        conditionCategories: conditionCategories
     }
 });
 
@@ -36981,8 +36983,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 "use strict";
 
-// initial state
-// shape: [{ id, quantity }]
+
 var state = {
   count: 0
 
